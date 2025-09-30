@@ -4,7 +4,7 @@ import User from "../models/user.model.js";
 export const Message = async (req, res) => {
   try {
     const { text } = req.body;
-
+    console.log(text);
     if (!text?.trim()) {
       return res.status(400).json({ error: "Text cannot be empty" });
     }
