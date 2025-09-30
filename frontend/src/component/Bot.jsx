@@ -16,12 +16,12 @@ function Bot() {
         setLoading(true);
         if(!input.trim()) return;
         try {
-           const res=await axios.post("http://localhost:4002/bot/v1/message",{
+           const res=await axios.post(`https://chatbot-app-2-ksy8.onrender.com/bot/v1/message`,{
                 text: input
             })
             if(res.status === 200) {
                 setMessages([...messages, { text: res.data.userMessage, sender: 'user' }, { text: res.data.botMessage, sender: 'bot' }]);
-               
+
             }
             console.log(res.data)
         } catch (error) {
@@ -33,7 +33,7 @@ function Bot() {
 
     const handleKeyPress = (e) => {
         if (e.key === 'Enter') handleSendMessage()}
-            
+
   return (
     <div className='flex flex-col min-h-screen bg-[#0d0d0d] text-white'>
          {/* Navbar & Header */}
