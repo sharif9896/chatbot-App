@@ -21,6 +21,9 @@ mongoose.connect(process.env.MONGO_URI)
     console.log("Error connecting to MongoDB:", error)
 })
 
+app.use('/', (req,res)=>{
+  res.send("Api is Running!");
+})
 // Defining Routes
 app.use("/bot/v1/", chatbotRoutes)
 
